@@ -5,44 +5,39 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+        Calculator calculator = new Calculator();
+
         String workContinue = "";
         while (!workContinue.equals("exit")) {
 
-            // 값 입력받기1(첫번째 숫자) * sc1으로 명명
-            Scanner sc1 = new Scanner(System.in);
+
+
             System.out.println("연산할 첫번째 숫자를 입력해주세요");
-            int first = sc1.nextInt();
+            int first = sc.nextInt();
 
-            // 값 입력받기2(두번째 숫자) * sc3으로 명명
-            Scanner sc2 = new Scanner(System.in);
             System.out.println("연산할 두번째 숫자를 입력해주세요");
-            int second = sc1.nextInt();
+            int second = sc.nextInt();
 
-            // 값 입력받기3(연산자) * sc2으로 명명
-            Scanner sc3 = new Scanner(System.in);
             System.out.println("연산할 부호를 입력해주세요(+,-,*,/)");
-            char cal = sc3.next().charAt(0);
+            char cal = sc.next().charAt(0);
 
 
             switch (cal) {
                 case '+':
-                    System.out.println((first + second));
+                    System.out.println(calculator.sum(first, second));
                     break;
 
                 case '-':
-                    System.out.println((first - second));
+                    System.out.println(calculator.sub(first, second));
                     break;
 
                 case '*':
-                    System.out.println((first * second));
+                    System.out.println(calculator.mul(first, second));
                     break;
 
                 case '/':
-                    if(second == 0) {
-                        System.out.println("0으로 나눌 수 없습니다. 0이상의 양의 정수를 입력해주세요");
-                    } else {
-                        System.out.println((first / second));
-                    }
+                    System.out.println(calculator.div(first, second));
                     break;
 
                 default:
@@ -50,11 +45,15 @@ public class App {
 
             }
 
-            Scanner sc4 = new Scanner(System.in);
-            System.out.println("연산을 종료하려면 exit를 작성하십시요(아무키나 누르면 연산을 계속 진행합니다)");
-            workContinue = sc4.next();
+            System.out.println("계산 기록 :" + Calculator.getResultCollection());
+
+
+
+            System.out.println("연산을 종료하려면 exit를 작성하십시요 / 계속 진행하려면 아무키나 누르시오");
+            workContinue = sc.next();
         }
 
         System.out.println("연산을 종료합니다");
     }
+
 }
