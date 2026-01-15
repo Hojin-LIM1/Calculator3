@@ -12,7 +12,6 @@ public class App {
         while (!workContinue.equals("exit")) {
 
 
-
             System.out.println("연산할 첫번째 숫자를 입력해주세요");
             int first = sc.nextInt();
 
@@ -21,7 +20,6 @@ public class App {
 
             System.out.println("연산할 부호를 입력해주세요(+,-,*,/)");
             char cal = sc.next().charAt(0);
-
 
             switch (cal) {
                 case '+':
@@ -41,13 +39,20 @@ public class App {
                     break;
 
                 default:
-                    System.out.println("잘못된 연산자입니다. 연산자를 올바르게 입력해주세요(+,-,*,/)");
+                    System.out.println("this is error");
 
             }
 
-            System.out.println("계산 기록 :" + Calculator.getResultCollection());
+            System.out.println("계산 기록 :" + calculator.getResultCollection());
 
+            System.out.println("가장 오래된 기록을 삭제하시겠습니까? Y or N(Press Any key)");
+            String remove  = sc.next();
 
+            if (remove.equals("Y")) {
+                calculator.removeResult();
+                System.out.println("수정후 기록 :" + calculator.getResultCollection());
+
+            }
 
             System.out.println("연산을 종료하려면 exit를 작성하십시요 / 계속 진행하려면 아무키나 누르시오");
             workContinue = sc.next();

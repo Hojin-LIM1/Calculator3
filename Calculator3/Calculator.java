@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Calculator {
 
     //컬렉션 생성 * 일반 배열선언과 다르게 자유롭게 들어가니 괜찮아.
-    // 속성과 생성이 동시에 선언된건가?
-    public  static ArrayList<Integer> resultCollection = new ArrayList<>();
+    // 속성 캡슐화 / 속성과 생성이 동시에 선언된건가?
+    private ArrayList<Integer> resultCollection = new ArrayList<>();
 
 
     // 기능
@@ -48,13 +48,23 @@ public class Calculator {
 
     }
 
-    // 연산 결과값 불러오기 메서드 추가
-    public static ArrayList<Integer> getResultCollection() {
+    // method5 getter setter 구현 후 method 추가 삭제
+    public void removeResult() {
+        resultCollection.remove(0);
+    }
+
+
+    //getter [array get으로 불러오기] / private 캡슐화로 해당클래스에 작성
+    public ArrayList<Integer> getResultCollection() {
         return resultCollection; // 변수 이름만 정확히 리턴!
     }
 
 
+    //setter [변수 수정] / private 캡슐화로 해당클래스에 작성
+    public void setResultCollection(ArrayList<Integer> resultCollection) {
+        this.resultCollection = resultCollection;
+    }
+
 
 
 }
-
