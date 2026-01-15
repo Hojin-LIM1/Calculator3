@@ -1,0 +1,43 @@
+package Calculator3-main;
+
+import java.util.Scanner;
+
+
+public class App {
+    public static void main(String args) {
+
+        // 스캐너 sc를 설정하고 입력값 받을 세팅
+        Scanner sc = new Scanner(System.in);
+
+        //일부 변수를 설정 초반에 설정할 변수는 무엇인가?
+        //클래스 작성 App이라는 객체(계산기)를 통해 사용자에게 구현하는 것이다.
+        //그 설계도(클래스)에 기능을 구현하고 그 설계도를 App클래스에 인스턴스화하여 구현한다.
+        // 부족한 개념1 : 인스턴스화란? 클래스의 설계도만으로는 뭘 할 수 가 없다. just 설계도이기 때문이야.
+        // 이 설계도 자체로는 계산을 하거나 데이터를 저장할 수 없다.
+        // 그래서 new 키워드로 저장공간을 할당해주고 별도로 기능한다.
+
+        System.out.println("첫번째 양의 정수를 입력해주세요");
+        int first = sc.nextInt();
+
+        System.out.println("두번째 양의 정수를 입력해주세요")
+        int second = sc.nextInt();
+
+        System.out.println("연산자를 입력해주세요(+,-,*,/)");
+        int cal = sc.next().charAt(0);
+
+        if (cal == '+') {
+            int result = first + second;
+            System.out.println(result);
+        } else if (cal == '-') {
+            int result = first - second;
+            System.out.println(result);
+        } else if (cal == '*') {
+            int result = first * second;
+            System.out.println(result);
+        } else if (cal == '/') {
+            int result = first / second;
+            System.out.println(result);
+        }
+    }
+
+}
